@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "categoryId": "3",
+    "tags": "cat,dog,bird",
+    "dateCreateAt": "01.01.2020",
+    "title": "First Post",
+    "text": "This is the content of the first post.",
+    "author": "Viktor"
+  },
+  {
+    "id": "2",
+    "categoryId": "10",
+    "tags": "cat,penguin,horse",
+    "dateCreateAt": "01.01.2022",
+    "title": "Hello World",
+    "text": "This is a greeting to the world!",
+    "author": "Olga"
+  },
+  {
+    "id": "3",
+    "categoryId": "6",
+    "tags": "dog,bird,horse",
+    "dateCreateAt": "05.05.2021",
+    "title": "My Adventures",
+    "text": "Exploring new horizons!",
+    "author": "Ivan"
+  },
+  {
+    "id": "4",
+    "categoryId": "7",
+    "tags": "cat,rabbit,bird",
+    "dateCreateAt": "10.10.2020",
+    "title": "Cat's Life",
+    "text": "Insights into the feline world.",
+    "author": "Maria"
+  },
+  {
+    "id": "5",
+    "categoryId": "8",
+    "tags": "dog,horse,rabbit",
+    "dateCreateAt": "15.03.2022",
+    "title": "Training Tips",
+    "text": "Effective ways to train your pet!",
+    "author": "Elena"
+  },
+  {
+    "id": "6",
+    "categoryId": "10",
+    "tags": "cat,dog,rabbit",
+    "dateCreateAt": "20.07.2021",
+    "title": "Adventurous Pets",
+    "text": "Pets leading an adventurous life!",
+    "author": "Pavel"
+  },
+  {
+    "id": "7",
+    "categoryId": "1",
+    "tags": "cat,bird,horse",
+    "dateCreateAt": "25.12.2020",
+    "title": "Bird Watching",
+    "text": "Observing the beauty of birds.",
+    "author": "Svetlana"
+  },
+  {
+    "id": "8",
+    "categoryId": "2",
+    "tags": "dog,hamster,bird",
+    "dateCreateAt": "30.06.2022",
+    "title": "Hamster Care",
+    "text": "Tips for caring for your hamster.",
+    "author": "Alexey"
+  },
+  {
+    "id": "9",
+    "categoryId": "9",
+    "tags": "cat,dog,parrot",
+    "dateCreateAt": "03.04.2021",
+    "title": "Parrot Whispering",
+    "text": "Communicating with your parrot.",
+    "author": "Dmitry"
+  },
+  {
+    "id": "10",
+    "categoryId": "10",
+    "tags": "dog,bird,rabbit",
+    "dateCreateAt": "08.09.2022",
+    "title": "Dog's Day Out",
+    "text": "A day filled with fun for your dog!",
+    "author": "Natalia"
+  }
+]
