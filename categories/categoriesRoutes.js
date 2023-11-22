@@ -7,9 +7,10 @@ const fs = require('fs').promises;
 const filePath = path.join(__dirname, 'categories.json');
 
 router.get('/v1/api/categories', getCategories);
-router.get('/v1/api/categories/:id', getCategoriesById);
-router.delete('/v1/api/categories/:id', deleteCategories);
-router.patch('/v1/api/categories/:id', updateCategories);
+router.post('/v1/api/posts', createCategory);
+router.get('/v1/api/categories/:id', getCategoryById);
+router.delete('/v1/api/categories/:id', deleteCategory);
+router.patch('/v1/api/categories/:id', updateCategory);
 
 
 async function getCategories(req, res) {
@@ -29,7 +30,28 @@ async function getCategories(req, res) {
     }
 }
 
-async function getCategoriesById(req, res) {
+async function createCategory(req, res) {
+    const { name, nickname } = req.body;
+    try {
+        let categories = await readFileData(filePath);
+        const dateCreateAt = Date.now().toString();
+        const id = Date.now().toString();
+        const newCategory = {
+            id,
+            name,
+            nickname,
+        };
+
+        categories.push(newCategory);
+        await fs.writeFile(filePath, JSON.stringify(categories, null, 2));
+        res.send(categories);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error while adding category and writing to file');
+    }
+}
+
+async function getCategoryById(req, res) {
     const { id } = req.params;
     try {
         let categories = await readFileData(filePath);
@@ -42,7 +64,7 @@ async function getCategoriesById(req, res) {
     }
 }
 
-async function deleteCategories(req, res) {
+async function deleteCategory(req, res) {
     const { id } = req.params;
     try {
         let categories = await readFileData(filePath);
@@ -57,7 +79,7 @@ async function deleteCategories(req, res) {
     }
 }
 
-async function updateCategories(req, res) {
+async function updateCategory(req, res) {
     const { id } = req.params;
     const { name, nickname } = req.body;
     try {

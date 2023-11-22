@@ -19,24 +19,24 @@ async function getPosts(req, res) {
         if (orderBy === 'dateCreateAt') {
             posts = posts.sort((a, b) => {
                 const dateA = new Date(
-                    parseInt(a.dateCreateAt.split('.')[2]), // Год
-                    parseInt(a.dateCreateAt.split('.')[1]) - 1, // Месяц (от 0 до 11)
-                    parseInt(a.dateCreateAt.split('.')[0]) // День
+                    parseInt(a.dateCreateAt.split('.')[2]), // Year
+                    parseInt(a.dateCreateAt.split('.')[1]) - 1, // Month (0 to 11)
+                    parseInt(a.dateCreateAt.split('.')[0]) // Day
                 );
                 const dateB = new Date(
-                    parseInt(b.dateCreateAt.split('.')[2]), // Год
-                    parseInt(b.dateCreateAt.split('.')[1]) - 1, // Месяц (от 0 до 11)
-                    parseInt(b.dateCreateAt.split('.')[0]) // День
+                    parseInt(b.dateCreateAt.split('.')[2]), // Year
+                    parseInt(b.dateCreateAt.split('.')[1]) - 1, // Month (0 to 11)
+                    parseInt(b.dateCreateAt.split('.')[0]) // Day
                 );
 
-                return dateB - dateA; // Возвращаем результат сортировки по убыванию даты
+                return dateB - dateA; // Return the result of sorting in descending order of date
 
             });
         }
         res.send(posts);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при получении постов');
+        res.status(500).send('Error while getting posts');
     }
 }
 
@@ -62,7 +62,7 @@ async function createPost(req, res) {
         res.send(posts);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при добавлении поста и записи в файл');
+        res.status(500).send('Error while adding post and writing to file');
     }
 }
 
@@ -71,11 +71,11 @@ async function getPostById(req, res) {
     try {
         let posts = await readFileData(filePath);
         const post = posts.find(post => post.id === id);
-        if (!post) return res.status(404).send('Пост не найден');
+        if (!post) return res.status(404).send('Post not found');
         res.send(post);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при получении поста');
+        res.status(500).send('Error while getting post');
     }
 }
 
@@ -84,13 +84,13 @@ async function deletePost(req, res) {
     try {
         let posts = await readFileData(filePath);
         const index = posts.findIndex(post => post.id === id);
-        if (index === -1)  return res.status(404).send('Пост не найден');
+        if (index === -1)  return res.status(404).send('Post not found');
         posts.splice(index, 1);
         await fs.writeFile(filePath, JSON.stringify(posts, null, 2));
-        res.send('Пост успешно удален');
+        res.send('Post successfully deleted');
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при удалении поста');
+        res.status(500).send('Error while deleting post');
     }
 }
 
@@ -100,7 +100,7 @@ async function updatePost(req, res) {
     try {
         let posts = await readFileData(filePath);
         const index = posts.findIndex(post => post.id === id);
-        if (index === -1) return res.status(404).send('Пост не найден');
+        if (index === -1) return res.status(404).send('Post not found');
 
         posts[index] = {
             ...posts[index],
@@ -112,10 +112,10 @@ async function updatePost(req, res) {
             updatedAt: Date.now().toString()
         };
         await fs.writeFile(filePath, JSON.stringify(posts, null, 2));
-        res.send('Пост успешно обновлен');
+        res.send('Post successfully updated');
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при обновлении поста');
+        res.status(500).send('Error while updating post');
     }
 }
 
