@@ -42,7 +42,6 @@ async function getPosts(req, res) {
 
 async function createPost(req, res) {
     const { title, text, author, tags, categoryId } = req.body;
-
     try {
         let posts = await readFileData(filePath);
         const dateCreateAt = Date.now().toString();
@@ -87,7 +86,7 @@ async function deletePost(req, res) {
         if (index === -1)  return res.status(404).send('Post not found');
         posts.splice(index, 1);
         await fs.writeFile(filePath, JSON.stringify(posts, null, 2));
-        res.send('Post successfully deleted');
+        res.send(posts);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error while deleting post');
@@ -112,7 +111,7 @@ async function updatePost(req, res) {
             updatedAt: Date.now().toString()
         };
         await fs.writeFile(filePath, JSON.stringify(posts, null, 2));
-        res.send('Post successfully updated');
+        res.send(posts);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error while updating post');

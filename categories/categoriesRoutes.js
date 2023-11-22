@@ -7,7 +7,7 @@ const fs = require('fs').promises;
 const filePath = path.join(__dirname, 'categories.json');
 
 router.get('/v1/api/categories', getCategories);
-router.post('/v1/api/posts', createCategory);
+router.post('/v1/api/categories', createCategory);
 router.get('/v1/api/categories/:id', getCategoryById);
 router.delete('/v1/api/categories/:id', deleteCategory);
 router.patch('/v1/api/categories/:id', updateCategory);
@@ -34,14 +34,12 @@ async function createCategory(req, res) {
     const { name, nickname } = req.body;
     try {
         let categories = await readFileData(filePath);
-        const dateCreateAt = Date.now().toString();
         const id = Date.now().toString();
         const newCategory = {
             id,
             name,
             nickname,
         };
-
         categories.push(newCategory);
         await fs.writeFile(filePath, JSON.stringify(categories, null, 2));
         res.send(categories);
@@ -72,7 +70,7 @@ async function deleteCategory(req, res) {
         if (index === -1)  return res.status(404).send('Category not found');
         categories.splice(index, 1);
         await fs.writeFile(filePath, JSON.stringify(categories, null, 2));
-        res.send('Category successfully deleted');
+        res.send(categories);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error while deleting category');
@@ -92,7 +90,7 @@ async function updateCategory(req, res) {
             nickname,
         };
         await fs.writeFile(filePath, JSON.stringify(categories, null, 2));
-        res.send('Category successfully updated');
+        res.send(categories);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error while updating category');
