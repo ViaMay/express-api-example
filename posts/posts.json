@@ -36,6 +36,15 @@
     "author": "Maria"
   },
   {
+    "id": "5",
+    "categoryId": "10",
+    "tags": "rabbit,rabbit,rabbit",
+    "dateCreateAt": "20.01.2021",
+    "title": "Adventurous rabbit",
+    "text": "Exploring new horizons!, Pets leading an adventurous life!",
+    "author": "Pavel"
+  },
+  {
     "id": "6",
     "categoryId": "10",
     "tags": "cat,dog,rabbit",
@@ -61,5 +70,23 @@
     "title": "Parrot Whispering",
     "text": "Communicating with your parrot.",
     "author": "Dmitry"
+  },
+  {
+    "id": "10",
+    "categoryId": "2",
+    "tags": "horse,dog,horse",
+    "dateCreateAt": "03.04.2022",
+    "title": "Horse Whispering",
+    "text": "Communicating with your horse.",
+    "author": "Oleg"
+  },
+  {
+    "id": "11",
+    "categoryId": "3",
+    "tags": "cat,parrot,parrot",
+    "dateCreateAt": "11.04.2021",
+    "title": "Cat Whispering",
+    "text": "Communicating with your cat.",
+    "author": "Dmitry Yegorovich"
   }
 ]
