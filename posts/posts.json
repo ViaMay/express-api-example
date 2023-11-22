@@ -36,15 +36,6 @@
     "author": "Maria"
   },
   {
-    "id": "5",
-    "categoryId": "8",
-    "tags": "dog,horse,rabbit",
-    "dateCreateAt": "15.03.2022",
-    "title": "Training Tips",
-    "text": "Effective ways to train your pet!",
-    "author": "Elena"
-  },
-  {
     "id": "6",
     "categoryId": "10",
     "tags": "cat,dog,rabbit",
@@ -63,15 +54,6 @@
     "author": "Svetlana"
   },
   {
-    "id": "8",
-    "categoryId": "2",
-    "tags": "dog,hamster,bird",
-    "dateCreateAt": "30.06.2022",
-    "title": "Hamster Care",
-    "text": "Tips for caring for your hamster.",
-    "author": "Alexey"
-  },
-  {
     "id": "9",
     "categoryId": "9",
     "tags": "cat,dog,parrot",
@@ -79,14 +61,5 @@
     "title": "Parrot Whispering",
     "text": "Communicating with your parrot.",
     "author": "Dmitry"
-  },
-  {
-    "id": "10",
-    "categoryId": "10",
-    "tags": "dog,bird,rabbit",
-    "dateCreateAt": "08.09.2022",
-    "title": "Dog's Day Out",
-    "text": "A day filled with fun for your dog!",
-    "author": "Natalia"
   }
 ]

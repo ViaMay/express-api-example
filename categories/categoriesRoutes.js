@@ -18,14 +18,14 @@ async function getCategories(req, res) {
         let categories = await readFileData(filePath);
         if (orderBy === 'dateCreateAt') {
             categories = categories.sort((a, b) => {
-                // Сортируем по полю dateCreateAt
+                // Sorting by the field dateCreateAt
                 return new Date(b.dateCreateAt) - new Date(a.dateCreateAt);
             });
         }
         res.send(categories);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при получении категорий');
+        res.status(500).send('Error while fetching categories');
     }
 }
 
@@ -34,11 +34,11 @@ async function getCategoriesById(req, res) {
     try {
         let categories = await readFileData(filePath);
         const category = categories.find(category => category.id === id);
-        if (!category) return res.status(404).send('Категория не найдена');
+        if (!category) return res.status(404).send('Category not found');
         res.send(category);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при получении категории');
+        res.status(500).send('Error while fetching category');
     }
 }
 
@@ -47,13 +47,13 @@ async function deleteCategories(req, res) {
     try {
         let categories = await readFileData(filePath);
         const index = categories.findIndex(category => category.id === id);
-        if (index === -1)  return res.status(404).send('Категория не найдена');
+        if (index === -1)  return res.status(404).send('Category not found');
         categories.splice(index, 1);
         await fs.writeFile(filePath, JSON.stringify(categories, null, 2));
-        res.send('Категория успешно удалена');
+        res.send('Category successfully deleted');
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при удалении категории');
+        res.status(500).send('Error while deleting category');
     }
 }
 
@@ -63,17 +63,17 @@ async function updateCategories(req, res) {
     try {
         let categories = await readFileData(filePath);
         const index = categories.findIndex(category => category.id === id);
-        if (index === -1) return res.status(404).send('Категория не найдена');
+        if (index === -1) return res.status(404).send('Category not found');
         categories[index] = {
             ...categories[index],
             name,
             nickname,
         };
         await fs.writeFile(filePath, JSON.stringify(categories, null, 2));
-        res.send('Категория успешна обновлен');
+        res.send('Category successfully updated');
     } catch (error) {
         console.error(error);
-        res.status(500).send('Ошибка при обновлении категории');
+        res.status(500).send('Error while updating category');
     }
 }
 

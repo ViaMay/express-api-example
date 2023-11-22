@@ -1,12 +1,47 @@
 [
-  { "id": "1", "name": "animals_pets", "nickname": "pets" },
-  { "id": "2", "name": "animals_birds", "nickname": "birds" },
-  { "id": "3", "name": "plants_flowers", "nickname": "flowers" },
-  { "id": "4", "name": "plants_trees", "nickname": "trees" },
-  { "id": "5", "name": "fruits_apples", "nickname": "apples" },
-  { "id": "6", "name": "fruits_bananas", "nickname": "bananas" },
-  { "id": "7", "name": "colors_red", "nickname": "red" },
-  { "id": "8", "name": "colors_blue", "nickname": "blue" },
-  { "id": "9", "name": "vehicles_cars", "nickname": "cars" },
-  { "id": "10", "name": "vehicles_trucks", "nickname": "trucks" }
+  {
+    "id": "2",
+    "name": "animals_birds",
+    "nickname": "birds"
+  },
+  {
+    "id": "3",
+    "name": "plants_flowers",
+    "nickname": "flowers"
+  },
+  {
+    "id": "4",
+    "name": "plants_trees",
+    "nickname": "trees"
+  },
+  {
+    "id": "5",
+    "name": "fruits_apples",
+    "nickname": "apples"
+  },
+  {
+    "id": "6",
+    "name": "fruits_bananas",
+    "nickname": "bananas"
+  },
+  {
+    "id": "7",
+    "name": "colors_red",
+    "nickname": "red"
+  },
+  {
+    "id": "8",
+    "name": "colors_blue",
+    "nickname": "blue"
+  },
+  {
+    "id": "9",
+    "name": "vehicles_cars",
+    "nickname": "cars"
+  },
+  {
+    "id": "10",
+    "name": "vehicles_trucks",
+    "nickname": "trucks"
+  }
 ]
